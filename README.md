@@ -1,14 +1,46 @@
 # Code Review/Refactor for XCoins
 
-This project should be refactored and made production-ready as a part of technical test for XCoins company.
+This project should be refactored and made production-ready as a part of technical test for [XCoins company](http://xcoins.com).
 
-## Usage Instructions
 
-- Clone this repository
-- Create .env file and configure your mongodb url
-- Run `yarn` to install required packages
-- Run `yarn seed` to have seed the database
-- Run `yarn dev` to have a development preview of the project
+## Installation
+
+```bash
+# Install npm packages
+$ yarn
+
+# create a copy of sample .env file
+$ cp .env.sample .env
+
+# use your favorite editor to configure your mongodb url
+$ vim .env
+```
+
+## Running the app
+
+```bash
+# development
+$ yarn start
+
+# watch mode
+$ yarn start:dev
+
+# production mode
+$ yarn start:prod
+```
+
+## Test
+
+```bash
+# unit tests
+$ yarn test
+
+# e2e tests
+$ yarn test:e2e
+
+# test coverage
+$ yarn test:cov
+```
 
 ## API List
 - `[GET] /api/favorite`
