@@ -111,3 +111,8 @@ $ yarn test:cov
 - Missing setup/run instructions documentation (a sample for .env file, readme instructions and etc...)
     - This might take some time from devops team or future developers to figure out how to run the code
     - Add sample .env file and also a section to readme.md which exactly defines steps to run the code
+
+## TODO
+- Create dockerfile and docker-compose scripts
+- Setup github ci
+- Merge nest branch into main
