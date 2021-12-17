@@ -5,7 +5,7 @@ const { Schema } = mongoose;
 const schema = new Schema(
   {
     profile_id: Schema.Types.ObjectId,
-    dateRecorded: Date,
+    date_recorded: Date,
     cryptocurrency: String,
     euros: Number,
     price: Number,
