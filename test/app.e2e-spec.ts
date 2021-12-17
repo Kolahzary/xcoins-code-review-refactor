@@ -39,6 +39,7 @@ describe('AppController (e2e)', () => {
   })
 
   afterEach(async () => {
+    await MongoHelper.dropDatabaseAsync()
     await app.close()
   })
 
@@ -49,10 +50,6 @@ describe('AppController (e2e)', () => {
       email: 'shadman.ko@gmail.com',
       preferred_cryptocurrency: 'ETH',
     }
-
-    afterEach(async () => {
-      await MongoHelper.dropDatabaseAsync()
-    })
 
     it('[GET] should return empty array', async () => {
       await request(app.getHttpServer())
@@ -103,6 +100,16 @@ describe('AppController (e2e)', () => {
 
         expect(response.body.data[0].email).toEqual(sampleUser.email)
       })
+
+      it.todo('[POST] should return error for duplicate record')
+    })
+  })
+
+  describe('/api/favorite', () => {
+    it('[GET] should return empty array', async () => {
+      await request(app.getHttpServer())
+        .get('/api/favorite')
+        .expect(200, { status: 'success', data: [] })
     })
   })
 

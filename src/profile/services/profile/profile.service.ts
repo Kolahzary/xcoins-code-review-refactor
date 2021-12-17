@@ -12,11 +12,11 @@ export class ProfileService {
   ) {}
 
   async findAll(): Promise<Profile[]> {
-    return this.profileModel.find().lean()
+    return await this.profileModel.find().lean()
   }
 
   async create(dto: CreateProfileRequest): Promise<Profile> {
     const createdProfile = new this.profileModel(dto)
-    return createdProfile.save()
+    return await createdProfile.save()
   }
 }
