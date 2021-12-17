@@ -46,4 +46,6 @@ It's a SIMPLE project which stores & retrieves some crypto-currency related data
 - No validation on requests
     - All user inputs should be strictly checked before processing
     - Solution: create DTOs for all requests and validate them strictly
-- 
+- Lint fixes
+    - Each developer can write different style code (some use backsticks for strings some use double quotations and etc...)
+    - Solution: eslint, prettier, and typescript should be strictly configured to force developers write codes in the correct style
