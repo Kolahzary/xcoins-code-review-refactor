@@ -54,4 +54,10 @@ It's a SIMPLE project which stores & retrieves some crypto-currency related data
     - Solution: seed more realistic data into db
 - Seed data doesn't match db structure!
     - There are some data in seed file which aren't inserted into db due to this conflict, and also some fields in models which are not filled
-    - Solution: Either db structure should be changed or seed data should be updated! (this is a test project and it doesn't have requirements definition, so I'll go with the first one)
+    - Solution: Either db structure should be changed or seed data should be updated! (I go with second one)
+- Bad structure of db
+    - List of favorites could be an array instead of lots of variables
+    - Simulator model contains a field named euros, is this app only used to buy crypto using euros?
+        - if no, it should have more generic name like 'amount' and 'value' and another field to define the base currency
+        - if yes, euros field could be computed using `price * quantity` (but it's ok to have pre-computed fields in NoSQL)
+    - Solution: refactor db models if needed
