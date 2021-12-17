@@ -10,6 +10,9 @@ const config: Config.InitialOptions = {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
 
+  globalSetup: "./globalSetup.ts",
+  globalTeardown: "./globalTeardown.ts",
+
   setupFiles: ['./setup.ts'],
   verbose: true,
 

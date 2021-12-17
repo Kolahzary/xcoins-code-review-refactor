@@ -8,7 +8,7 @@ export const validationSchema = Joi.object({
 
   PORT: Joi.number().default(3000),
 
-  DB_URL: Joi.string().default('mongodb://username:password@localhost:27017/?authSource=admin&readPreference=primary&ssl=false'),
+  MONGO_URI: Joi.string().default('mongodb://localhost:27017/xcoins'),
 
   CORS_ORIGINS: Joi.string().default(27017),
 })

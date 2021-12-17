@@ -3,6 +3,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '~/app.module';
 import { AllHttpExceptionsFilter, HttpValidationException, JsendInterceptor } from '~/common';
+import { MongoHelper } from './utils';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -37,6 +38,17 @@ describe('AppController (e2e)', () => {
   })
 
   describe('/api/profile', () => {
+    const sampleUser = {
+      name: 'Shadman',
+      nickname: 'sha',
+      email: 'shadman.ko@gmail.com',
+      preferred_cryptocurrency: 'ETH'
+    }
+
+    afterEach(async () => {
+      await MongoHelper.dropDatabaseAsync()
+    })
+
     it('[GET] should return empty array', async () => {
       await request(app.getHttpServer())
         .get('/api/profile')
@@ -63,16 +75,28 @@ describe('AppController (e2e)', () => {
     it('[POST] should return 201 success for valid requests', async () => {
       await request(app.getHttpServer())
         .post('/api/profile')
-        .send({
-          name: 'Shadman',
-          nickname: 'sha',
-          email: 'shadman.ko@gmail.com',
-          preferred_cryptocurrency: 'ETH'
-        })
-        .expect(201, {
-          status: 'success',
-          data: null
-        })
+        .send(sampleUser)
+        .expect(201)
+    })
+
+    describe('After profile create', () => {
+      beforeEach(async () => {
+        await request(app.getHttpServer())
+          .post('/api/profile')
+          .send(sampleUser)
+          .expect(201)
+      })
+
+      it('[GET] should return created profile', async () => {
+        const response = await request(app.getHttpServer())
+          .get('/api/profile')
+          .expect(200)
+
+        expect(response.body.status).toEqual('success')
+        expect(response.body.data).toHaveLength(1)
+
+        expect(response.body.data[0].email).toEqual(sampleUser.email)
+      })
     })
   })
 

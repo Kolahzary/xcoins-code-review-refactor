@@ -1,8 +1,13 @@
 import { Body, Controller, Get, Logger, Post } from '@nestjs/common';
+import { ProfileService } from '~/profile/services';
 import { CreateProfileRequest } from '../../dto';
 
 @Controller('api/profile')
 export class ProfileController {
+    constructor(
+        private readonly profileService: ProfileService
+    ) { }
+
     /**
      * Get all profile records
      * 
@@ -10,8 +15,7 @@ export class ProfileController {
      */
     @Get()
     getAll() {
-        // TODO
-        return []
+        return this.profileService.findAll()
     }
     
     /**
@@ -19,7 +23,6 @@ export class ProfileController {
      */
     @Post()
     createProfile(@Body() request: CreateProfileRequest) {
-        Logger.log(request)
-        // TODO
+        return this.profileService.create(request)
     }
 }

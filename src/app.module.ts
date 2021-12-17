@@ -1,5 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
+
 import { AppController } from './app.controller';
 import { AllHttpExceptionsFilter } from './common';
 import { configuration, validationSchema} from './config';
@@ -15,7 +17,11 @@ import { SimulatorModule } from './simulator/simulator.module';
       load: [configuration],
       validationSchema: validationSchema,
     }),
-    FavoriteModule, ProfileModule, SimulatorModule],
+    MongooseModule.forRoot(process.env.MONGO_URI),
+    FavoriteModule,
+    ProfileModule,
+    SimulatorModule
+  ],
   controllers: [AppController],
   providers: [AllHttpExceptionsFilter],
 })
