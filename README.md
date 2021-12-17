@@ -1,9 +1,17 @@
 # Code Review/Refactor for XCoins
+
 This project should be refactored and made production-ready as a part of technical test for XCoins company.
 
 At first, I've checked the project and tried to understand it.
 It's a SIMPLE project which stores & retrieves some crypto-currency related data.
 
+## Instructions
+
+- Clone this repository
+- Create .env file and configure your mongodb url
+- Run `yarn` to install required packages
+- Run `yarn seed` to have seed the database
+- Run `yarn dev` to have a development preview of the project
 
 ## API List
 - `[GET] /api/favorite`
@@ -18,7 +26,7 @@ It's a SIMPLE project which stores & retrieves some crypto-currency related data
     - Returns all records of simulator collection
 - `[GET] /api/simulator/:profile_id`
     - Returns all simulator records of a specific profile
-- `[POST] /api/simulator/:profile_id { ... }`
+- `[POST] /api/simulator/:profile_id { date_recorded, cryptocurrency, euros, price, quantity }`
     - Creates a simulator record for specified profile
 
 ## Problems
@@ -61,3 +69,6 @@ It's a SIMPLE project which stores & retrieves some crypto-currency related data
         - if no, it should have more generic name like 'amount' and 'value' and another field to define the base currency
         - if yes, euros field could be computed using `price * quantity` (but it's ok to have pre-computed fields in NoSQL)
     - Solution: refactor db models if needed
+- Missing setup/run instructions documentation (a sample for .env file, readme instructions and etc...)
+    - This might take some time from devops team or future developers to figure out how to run the code
+    - Add sample .env file and also a section to readme.md which exactly defines steps to run the code
