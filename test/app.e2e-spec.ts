@@ -1,8 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
-import { AllHttpExceptionsFilter, HttpValidationException, JsendInterceptor } from '../src/common';
+import { AppModule } from '~/app.module';
+import { AllHttpExceptionsFilter, HttpValidationException, JsendInterceptor } from '~/common';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
