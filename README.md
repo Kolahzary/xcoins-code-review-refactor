@@ -67,6 +67,9 @@ $ yarn test:cov
 3. Tried to fix some bugs in current project and make it just work!
     - A little refactor on models (breaking change)
     - some bugfixes on seed file
+4. Created a new branch and completely rewritten whole project based on Nest.js
+    - Project wasn't that much big, so re-writing it was optimal
+5. Created a branch named legacy from main and merged the re-written code from nest branch into main
 
 ## Problems of base project
 - No documentation or api reference
