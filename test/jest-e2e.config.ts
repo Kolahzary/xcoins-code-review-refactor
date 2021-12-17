@@ -1,5 +1,5 @@
-import type { Config } from '@jest/types';
-import { resolve } from 'path';
+import type { Config } from '@jest/types'
+import { resolve } from 'path'
 
 const config: Config.InitialOptions = {
   moduleFileExtensions: ['js', 'json', 'ts'],
@@ -10,8 +10,8 @@ const config: Config.InitialOptions = {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
 
-  globalSetup: "./globalSetup.ts",
-  globalTeardown: "./globalTeardown.ts",
+  globalSetup: './globalSetup.ts',
+  globalTeardown: './globalTeardown.ts',
 
   setupFiles: ['./setup.ts'],
   verbose: true,
@@ -19,6 +19,6 @@ const config: Config.InitialOptions = {
   moduleNameMapper: {
     '^~/(.*)$': resolve(__dirname, '../src/$1'),
   },
-};
+}
 
-export default config;
+export default config

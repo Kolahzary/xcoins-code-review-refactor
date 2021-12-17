@@ -2,15 +2,15 @@ export interface ValidationError {
   /**
    * Property which rejected in validation check
    */
-  property: string;
+  property: string
 
   /**
    * Constraint which caused the validation to be rejected
    */
-  constraint: string;
+  constraint: string
 
   /**
    * Error message
    */
-  error: string;
+  error: string
 }

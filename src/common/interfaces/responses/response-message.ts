@@ -1,3 +1,3 @@
 export interface ResponseMessage {
-    message: string
+  message: string
 }

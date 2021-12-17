@@ -1,4 +1,4 @@
 process.on('unhandledRejection', (err) => {
-  console.error(['unhandled promise rejection', err]);
-  fail(err);
-});
+  console.error(['unhandled promise rejection', err])
+  fail(err)
+})

@@ -28,18 +28,18 @@
  * }
  * ```
  * Required keys:
- * 
+ *
  * * status: Should always be set to "success".
  * * data: Acts as the wrapper for any data returned by the API call. If the call returns no data (as in the last example), data should be set to null.
  */
 export interface JSendSuccessResponse<T> {
-    /**
-     * Should always be success
-     */
-    status: 'success'
+  /**
+   * Should always be success
+   */
+  status: 'success'
 
-    /**
-     * Acts as the wrapper for any data returned by the API call. If the call returns no data, data should be set to null.
-     */
-    data: T
+  /**
+   * Acts as the wrapper for any data returned by the API call. If the call returns no data, data should be set to null.
+   */
+  data: T
 }

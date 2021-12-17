@@ -1,24 +1,23 @@
-import { IsEmail, IsNumber, IsOptional, IsString } from "class-validator";
+import { IsEmail, IsNumber, IsOptional, IsString } from 'class-validator'
 
 export class CreateProfileRequest {
   @IsString()
-  name: string;
+  name: string
 
   @IsString()
-  nickname: string;
-  
+  nickname: string
+
   @IsEmail()
-  email: string;
+  email: string
 
   @IsNumber()
   @IsOptional()
-  capital: number;
+  capital: number
 
   @IsString()
   @IsOptional()
-  divisa: string;
+  divisa: string
 
   @IsString()
-  preferred_cryptocurrency: string;
+  preferred_cryptocurrency: string
 }
-

@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException } from '@nestjs/common';
+import { Controller, Get, NotFoundException } from '@nestjs/common'
 
 @Controller()
 export class AppController {

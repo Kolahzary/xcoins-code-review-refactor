@@ -1,37 +1,42 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { INestApplication, ValidationPipe } from '@nestjs/common';
-import * as request from 'supertest';
-import { AppModule } from '~/app.module';
-import { AllHttpExceptionsFilter, HttpValidationException, JsendInterceptor } from '~/common';
-import { MongoHelper } from './utils';
+import { Test, TestingModule } from '@nestjs/testing'
+import { INestApplication, ValidationPipe } from '@nestjs/common'
+import * as request from 'supertest'
+import { AppModule } from '~/app.module'
+import {
+  AllHttpExceptionsFilter,
+  HttpValidationException,
+  JsendInterceptor,
+} from '~/common'
+import { MongoHelper } from './utils'
 
 describe('AppController (e2e)', () => {
-  let app: INestApplication;
+  let app: INestApplication
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
-    }).compile();
+    }).compile()
 
-    app = moduleFixture.createNestApplication();
+    app = moduleFixture.createNestApplication()
 
-    app.useGlobalPipes(new ValidationPipe({
-      whitelist: true,
-      validationError: {
-        target: true,
-        value: true,
-      },
-      exceptionFactory: (errors) => new HttpValidationException(errors),
-    }));
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+        validationError: {
+          target: true,
+          value: true,
+        },
+        exceptionFactory: (errors) => new HttpValidationException(errors),
+      }),
+    )
 
+    const filter = app.get<AllHttpExceptionsFilter>(AllHttpExceptionsFilter)
+    app.useGlobalFilters(filter)
 
-    const filter = app.get<AllHttpExceptionsFilter>(AllHttpExceptionsFilter);
-    app.useGlobalFilters(filter);
+    app.useGlobalInterceptors(new JsendInterceptor())
 
-    app.useGlobalInterceptors(new JsendInterceptor());
-
-    await app.init();
-  });
+    await app.init()
+  })
 
   afterEach(async () => {
     await app.close()
@@ -42,7 +47,7 @@ describe('AppController (e2e)', () => {
       name: 'Shadman',
       nickname: 'sha',
       email: 'shadman.ko@gmail.com',
-      preferred_cryptocurrency: 'ETH'
+      preferred_cryptocurrency: 'ETH',
     }
 
     afterEach(async () => {
@@ -59,7 +64,7 @@ describe('AppController (e2e)', () => {
       await request(app.getHttpServer())
         .post('/api/profile')
         .send({
-          test: 'anything...'
+          test: 'anything...',
         })
         .expect(400, {
           status: 'fail',
@@ -67,8 +72,9 @@ describe('AppController (e2e)', () => {
             name: 'name must be a string',
             nickname: 'nickname must be a string',
             email: 'email must be an email',
-            preferred_cryptocurrency: 'preferred_cryptocurrency must be a string'
-          }
+            preferred_cryptocurrency:
+              'preferred_cryptocurrency must be a string',
+          },
         })
     })
 
@@ -101,8 +107,6 @@ describe('AppController (e2e)', () => {
   })
 
   it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(404);
-  });
-});
+    return request(app.getHttpServer()).get('/').expect(404)
+  })
+})

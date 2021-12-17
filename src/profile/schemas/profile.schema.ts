@@ -1,43 +1,43 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Document } from 'mongoose'
 
-export type ProfileDocument = Profile & Document;
+export type ProfileDocument = Profile & Document
 
 @Schema({
-  timestamps: true
+  timestamps: true,
 })
 export class Profile {
   @Prop({
-    type: String
+    type: String,
   })
-  name: string;
+  name: string
 
   @Prop({
-    type: String
+    type: String,
   })
-  nickname: string;
+  nickname: string
 
   @Prop({
     type: String,
     unique: true,
-    index: true
+    index: true,
   })
-  email: string;
+  email: string
 
   @Prop({
-    type: Number
+    type: Number,
   })
-  capital: number;
+  capital: number
 
   @Prop({
-    type: String
+    type: String,
   })
-  divisa: string;
+  divisa: string
 
   @Prop({
-    type: String
+    type: String,
   })
-  prefered_cryptocurrency: string;
+  prefered_cryptocurrency: string
 }
 
-export const ProfileSchema = SchemaFactory.createForClass(Profile);
+export const ProfileSchema = SchemaFactory.createForClass(Profile)

@@ -1,1 +1,1 @@
-export * from './create-profile-request.dto';
+export * from './create-profile-request.dto'

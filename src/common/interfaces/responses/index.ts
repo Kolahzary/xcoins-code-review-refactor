@@ -1,2 +1,2 @@
-export * from './jsend';
+export * from './jsend'
 export * from './response-message'

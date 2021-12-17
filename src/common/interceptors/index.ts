@@ -1,1 +1,1 @@
-export * from './jsend.interceptor';
+export * from './jsend.interceptor'
