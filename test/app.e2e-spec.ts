@@ -146,6 +146,12 @@ describe('AppController (e2e)', () => {
             .expect(200, { status: 'success', data: [] })
         })
 
+        it('[GET /:profile_id] should return empty array', async () => {
+          await request(app.getHttpServer())
+            .get(`/api/simulator/${createdProfile._id}`)
+            .expect(200, { status: 'success', data: [] })
+        })
+
         it('[POST /:profile_id] should return 400 fail for requests with validation error', async () => {
           await request(app.getHttpServer())
             .post(`/api/simulator/${createdProfile._id}`)
@@ -186,6 +192,19 @@ describe('AppController (e2e)', () => {
           it('[GET] should return created simulator', async () => {
             const response = await request(app.getHttpServer())
               .get('/api/simulator')
+              .expect(200)
+
+            expect(response.body.status).toEqual('success')
+            expect(response.body.data).toHaveLength(1)
+
+            expect(response.body.data[0].date_recorded).toEqual(
+              sampleSimulator.date_recorded,
+            )
+          })
+
+          it('[GET /:profile_id] should return created simulator', async () => {
+            const response = await request(app.getHttpServer())
+              .get(`/api/simulator/${createdProfile._id}`)
               .expect(200)
 
             expect(response.body.status).toEqual('success')
