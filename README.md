@@ -115,4 +115,3 @@ $ yarn test:cov
 ## TODO
 - Create dockerfile and docker-compose scripts
 - Setup github ci
-- Merge nest branch into main
