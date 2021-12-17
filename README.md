@@ -52,3 +52,6 @@ It's a SIMPLE project which stores & retrieves some crypto-currency related data
 - Non-realistic seed data
     - This might confuse developers about the type of data that should be passed to this app
     - Solution: seed more realistic data into db
+- Seed data doesn't match db structure!
+    - There are some data in seed file which aren't inserted into db due to this conflict, and also some fields in models which are not filled
+    - Solution: Either db structure should be changed or seed data should be updated! (this is a test project and it doesn't have requirements definition, so I'll go with the first one)
