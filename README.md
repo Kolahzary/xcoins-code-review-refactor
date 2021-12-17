@@ -49,3 +49,6 @@ It's a SIMPLE project which stores & retrieves some crypto-currency related data
 - Lint fixes
     - Each developer can write different style code (some use backsticks for strings some use double quotations and etc...)
     - Solution: eslint, prettier, and typescript should be strictly configured to force developers write codes in the correct style
+- Non-realistic seed data
+    - This might confuse developers about the type of data that should be passed to this app
+    - Solution: seed more realistic data into db
