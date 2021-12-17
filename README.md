@@ -2,10 +2,7 @@
 
 This project should be refactored and made production-ready as a part of technical test for XCoins company.
 
-At first, I've checked the project and tried to understand it.
-It's a SIMPLE project which stores & retrieves some crypto-currency related data.
-
-## Instructions
+## Usage Instructions
 
 - Clone this repository
 - Create .env file and configure your mongodb url
@@ -29,7 +26,17 @@ It's a SIMPLE project which stores & retrieves some crypto-currency related data
 - `[POST] /api/simulator/:profile_id { date_recorded, cryptocurrency, euros, price, quantity }`
     - Creates a simulator record for specified profile
 
-## Problems
+## Taken Steps
+1. At first, I've checked the project and tried to understand it.
+    - It's a SIMPLE project which stores & retrieves some crypto-currency related data.
+    - It has 3 models, with routers for each of them
+    - It has a messy seed file
+2. Editted the readme file and added a list of problems for future reference
+3. Tried to fix some bugs in current project and make it just work!
+    - A little refactor on models (breaking change)
+    - some bugfixes on seed file
+
+## Problems of base project
 - No documentation or api reference
     - This makes onboarding a new team member hard! (and etc...)
     - Solution: Always maintain documentations
