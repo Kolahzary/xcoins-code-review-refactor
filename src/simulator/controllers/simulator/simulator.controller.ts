@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common'
-import { CreateSimulatorRequest } from '~/simulator/dto'
-import { SimulatorService } from '~/simulator/services'
+import { CreateSimulatorRequest } from '../../dto'
+import { SimulatorService } from '../../services'
 
 @Controller('api/simulator')
 export class SimulatorController {

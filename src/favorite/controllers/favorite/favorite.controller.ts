@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common'
-import { FavoriteService } from '~/favorite/services'
+import { FavoriteService } from '../../services'
 
 @Controller('api/favorite')
 export class FavoriteController {

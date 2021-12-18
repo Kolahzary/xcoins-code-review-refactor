@@ -1,4 +1,6 @@
+import { getModelToken } from '@nestjs/mongoose'
 import { Test, TestingModule } from '@nestjs/testing'
+import { Profile } from '../../schemas'
 import { ProfileService } from './profile.service'
 
 describe('ProfileService', () => {
@@ -6,7 +8,17 @@ describe('ProfileService', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [ProfileService],
+      providers: [
+        {
+          provide: getModelToken(Profile.name),
+          useFactory: () => {
+            return {
+              find: jest.fn(),
+            }
+          },
+        },
+        ProfileService,
+      ],
     }).compile()
 
     service = module.get<ProfileService>(ProfileService)
