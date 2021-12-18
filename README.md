@@ -1,10 +1,17 @@
-# Code Review/Refactor for XCoins
+# Code Review/Refactor for XCoins ![Build and Tests](https://github.com/kolahzary/xcoins-code-review-refactor/actions/workflows/node.js.yml/badge.svg)
 
-This project should be refactored and made production-ready as a part of technical test for [XCoins company](http://xcoins.com).
+This project has been refactored and made production-ready as a part of technical test for [XCoins Company](http://xcoins.com).
 
+It includes:
+- A clean Nest.js project
+- E2E tests for APIs
+- CI/CD using Github Actions
+    - Auto build, unit&e2e test on each commit to master
+    - Auto build and deploy docker image to Docker Hub
 
 ## Installation
 
+Either run the app directly
 ```bash
 # Install npm packages
 $ yarn
@@ -14,6 +21,20 @@ $ cp .env.sample .env
 
 # use your favorite editor to configure your mongodb url
 $ vim .env
+```
+
+Or just use docker-compose file in scripts folder
+```bash
+# Enter the scripts folder
+$ cd scripts
+
+# Build images
+$ docker-compose build
+
+# Run
+$ docker-compose up
+
+# Or you can use ./up.sh and ./down.sh scripts
 ```
 
 ## Running the app
@@ -35,7 +56,7 @@ $ yarn start:prod
 # unit tests
 $ yarn test
 
-# e2e tests
+# e2e tests (more coverage)
 $ yarn test:e2e
 
 # test coverage
