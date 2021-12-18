@@ -70,6 +70,8 @@ $ yarn test:cov
 4. Created a new branch and completely rewritten whole project based on Nest.js
     - Project wasn't that much big, so re-writing it was optimal
 5. Created a branch named legacy from main and merged the re-written code from nest branch into main
+6. Created Dockerfile and docker-compose script to easily run project
+7. Created Github Actions workflow file to install, build, and unit+e2e tests on different node versions after each change on repository
 
 ## Problems of base project
 - No documentation or api reference
@@ -114,7 +116,3 @@ $ yarn test:cov
 - Missing setup/run instructions documentation (a sample for .env file, readme instructions and etc...)
     - This might take some time from devops team or future developers to figure out how to run the code
     - Add sample .env file and also a section to readme.md which exactly defines steps to run the code
-
-## TODO
-- Create dockerfile and docker-compose scripts
-- Setup github ci
