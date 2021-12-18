@@ -7,7 +7,8 @@ It includes:
 - E2E tests for APIs
 - CI/CD using Github Actions
     - Auto build, unit&e2e test on each commit to master
-    - Auto build and deploy docker image to Docker Hub
+    - Auto build and deploy docker image to Docker Hub: https://hub.docker.com/r/kolahzary/xcoins-code-review
+
 
 ## Installation
 
