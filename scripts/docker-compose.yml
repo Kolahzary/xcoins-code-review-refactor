@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  xcoins_code_review:
+    image: xcoins-code-review:latest
+    container_name: xcoins_code_review
+    restart: unless-stopped
+    build:
+      context: ../
+    networks:
+      - mongo
+    ports:
+      - "3000:3000"
+    environment:
+      - "MONGO_URI=mongodb://xcoins_mongodb/xcoins"
+      - PORT=3000
+      - CORS_ORIGINS=localhost
+      
+  xcoins_mongodb: # mongodb with persistant volume
+    image: mongo:latest
+    container_name: xcoins_mongodb
+    restart: unless-stopped
+    networks:
+      - mongo
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    # ports:
+      # - "27017:27017"
+    volumes:
+    - mongo-data:/data/db
+
+volumes:
+  mongo-data:
+
+networks:
+  mongo:
