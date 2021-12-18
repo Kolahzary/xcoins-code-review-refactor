@@ -8,7 +8,6 @@ import {
   JsendInterceptor,
 } from '~/common'
 import { MongoHelper } from './utils'
-import { Profile, ProfileDocument } from '~/profile/schemas'
 
 describe('AppController (e2e)', () => {
   let app: INestApplication
